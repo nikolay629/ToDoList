@@ -1,0 +1,22 @@
+<div class="space title-background">
+    <hr>
+    <h5 class="card-title title">Approve Jobs</h5>
+    <hr>
+</div>
+<div class="row space">
+    <ng-container  *ngFor="let ad of approveAdList">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body card-background">
+                    <h5 class="card-title title">{{ad.ClientName}}</h5>
+                    <h5 class="card-title">Title: {{ad.AdTitle}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Category: {{ad.AdCategory}}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Type: {{ad.AdType}}</h6>
+                    <p class="card-text">Information: {{ad.AdInformation}}</p>
+                    <h5 class="card-subtitle mb-2 text-muted like" *ngIf="checkLike(ad)">Likes: {{likes}}</h5>
+                    <button class="btn btn-outline-primary apply float-right" (click)="refuse(ad)" > Refuse </button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

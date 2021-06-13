@@ -1,0 +1,28 @@
+<form #form="ngForm" (ngSubmit)="publishAd()">
+    <div>
+        <h1>Create Job Ad</h1>
+        <ul>
+            <b>Job Title: </b> <br> 
+            <input type="text" placeholder="Job Title" name="title" [(ngModel)]="title">
+        </ul>
+        <ul>
+            <b>Type: </b> <br>
+            <select name="type" [(ngModel)]="type">
+                <option *ngFor="let type of jobType" >{{type}}</option>
+            </select>
+        </ul>
+        <ul>
+            <b>Category:</b> <br>
+            <select name="category" [(ngModel)]="category">
+                <option *ngFor="let category of categories">{{category}}</option>
+            </select>
+        </ul>
+        <ul>
+            <b>Information for position:</b> <br>
+            <textarea placeholder="Information for position" name="information" [(ngModel)]="information"></textarea>
+        </ul>
+        <ul class="btn">
+            <button type="submit">Publish ad</button>
+        </ul>
+    </div>
+</form>

@@ -1,0 +1,77 @@
+<div class="space title-background">
+    <hr>
+    <h5 class="card-title title">My Profile</h5>
+    <hr>
+</div>
+<form #form="ngForm" (ngSubmit)="edit()">
+    <div >
+        <ng-container *ngIf="editIsClick === false; else formEdit">
+            <table class="table table-sm">
+                <tr>
+                    <th scope="col">Name: </th>
+                    <th scope="col">{{clientAccount.ClientName}}</th>
+                </tr>
+                <tr>
+                    <th scope="col">Email: </th>
+                    <th scope="col">{{clientAccount.ClientEmail}}</th>
+                </tr>
+                <tr>
+                    <th scope="col">Address: </th>
+                    <th scope="col">{{clientAccount.ClientAddress}}</th>
+                </tr>
+                <tr>
+                    <th scope="col">Password: </th>
+                    <th scope="col">{{clientAccount.ClientPassword}}</th>
+                </tr>
+                <tr>
+                    <th>
+                        <button class="btn btn-outline-primary apply float-right" (click)="editForm()">Edit</button>   
+                        
+                    </th>
+                    <th>
+                        <button class="btn btn-outline-primary apply float-left" (click)="deleteAccount()">Delete</button>
+                    </th>
+                </tr>
+            </table>
+        </ng-container>
+        <ng-template #formEdit>
+            <table class="table table-sm">
+                <tr>
+                    <th scope="col">Name: </th>
+                    <th scope="col">
+                        <input class="form-control" type="text" placeholder="{{clientAccount.ClientName}}"
+                            name="name" [(ngModel)]="name">
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="col">Email: </th>
+                    <th scope="col">
+                        <input class="form-control" type="text" placeholder="{{clientAccount.ClientEmail}}"
+                            name="email" [(ngModel)]="email" >
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="col">Address: </th>
+                    <th scope="col"> 
+                        <input class="form-control" type="text" placeholder="{{clientAccount.ClientAddress}}"
+                            name="address" [(ngModel)]="address">
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="col">Password: </th>
+                    <th scope="col"> 
+                        <input class="form-control" type="text" placeholder={{clientAccount.ClientPassword}}
+                            name="password" [(ngModel)]="password">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <button class="btn btn-outline-primary apply float-right">Edit</button>   
+                        
+                    </th>
+                </tr>
+            </table>
+        </ng-template>
+        
+    </div>
+</form>

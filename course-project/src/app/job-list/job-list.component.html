@@ -1,0 +1,6 @@
+<ng-container *ngIf="checkUser(); else companyUser">
+  <app-client-jobs></app-client-jobs>
+</ng-container>
+<ng-template #companyUser >
+  <app-company-jobs></app-company-jobs>
+</ng-template>

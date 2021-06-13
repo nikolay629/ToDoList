@@ -1,0 +1,33 @@
+<div class="space title-background">
+  <hr>
+  <h5 class="card-title title">Apply Jobs</h5>
+  <hr>
+</div>
+<ng-container  *ngFor="let ad of adList">
+  <ng-container *ngIf="ad.Approve === 'Not Approve'">
+    <div class="space job-name">
+      <hr>
+      <h5 class="card-title title ">Title: {{ad.AdTitle}}</h5>
+      <hr>
+    </div>
+    <div class="row space">
+      <ng-container *ngFor="let apply of applyAdList">
+        <ng-container *ngIf="apply.AdId === ad.AdId">
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body card-background">
+                <h5 class="card-title title">{{apply.ClientName}}</h5>
+                <button class="btn btn-outline-primary apply" (click)="approve(ad, apply)"> Approve </button> 
+                <button class="btn btn-outline-primary apply float-right" (click)="refuse(apply.ApplyAdId)" > Refuse </button>
+              </div>
+            </div>
+          </div> 
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-container>
+  
+
+         
+      

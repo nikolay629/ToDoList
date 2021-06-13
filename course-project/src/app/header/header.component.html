@@ -1,0 +1,20 @@
+<div class="topnav">
+  <ng-container *ngIf="!checkEntered(); else userEntered">
+    <a routerLink="/home">Proxsoft</a>
+    <div style="float: right;">
+      <a routerLink="/registration">Registration</a>
+      <a routerLink="/login">Login</a>
+    </div>
+  </ng-container>
+  <ng-template #userEntered>
+    <ng-container *ngIf="checkClient(); else companyUser">
+      <app-header-client></app-header-client>
+    </ng-container>
+    <ng-template #companyUser>
+      <app-header-company></app-header-company>
+    </ng-template>
+  </ng-template>
+</div>  
+
+
+

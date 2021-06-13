@@ -1,0 +1,45 @@
+<form  #form="ngForm" (ngSubmit)="registration()">
+    <div>
+        <h1>Registration</h1>
+        <ul style="text-align: center; justify-content: center; display: flex;">
+            <b>Users:</b><input class="checkbox" type="radio"  
+             name="r1" value="client" checked
+            (change)="onItemChange($event.target.value)">
+            <b>Company:</b> <input class="checkbox" type="radio" 
+             name="r1" value="company"
+            (change)="onItemChange($event.target.value)"> 
+        </ul>
+        <ul>
+            <b>E-mail:</b> <br> 
+            <input type="text" placeholder="E-mail" name="email" [(ngModel)]="email">
+        </ul>
+        <ng-container *ngIf="userCheck(); else company">
+            <ul>
+                <b>Client name:</b> <br>
+                <input type="text"  placeholder="Client Name" name="clientName" [(ngModel)]="clientName">
+            </ul>
+        </ng-container>
+        <ng-template #company>
+            <ul>
+                <b>Company name:</b> <br>
+                <input type="text"  placeholder="Company Name" name="companyName" [(ngModel)]="companyName">
+            </ul>
+        </ng-template>
+        <ul>
+            <b>Address:</b> <br>
+            <input type="text" placeholder="Address" name="address" [(ngModel)]="address">
+        </ul>
+        <ul>
+            <b>Password:</b> <br>
+            <input type="password" placeholder="Password" name="password" [(ngModel)]="password">
+        </ul>
+        <ul>
+            <b>Confirm Password:</b> <br>
+            <input type="password" placeholder="Confirm Password" name="confirmPassword" [(ngModel)]="confirmPassword">
+        </ul>
+        <ul style="text-align: center;" class="text-danger">{{message}}</ul>
+        <ul class="btn">
+            <button type="submit">Registration</button>
+        </ul>
+    </div>
+</form>

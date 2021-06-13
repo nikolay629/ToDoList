@@ -1,0 +1,30 @@
+<div class="space title-background">
+  <hr>
+  <h5 class="card-title title">Jobs</h5>
+  <hr>
+</div>
+<div class="row space">
+  <ng-container  *ngFor="let ad of adList">
+    <ng-container *ngIf="checkForApply(ad)">
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body card-background">
+            <h5 class="card-title title">{{companyName}}</h5>
+            <h5 class="card-title">Title: {{ad.AdTitle}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Category: {{ad.AdCategory}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Type: {{ad.AdType}}</h6>
+            <p class="card-text">Information: {{ad.AdInformation}}</p>
+            <h5 class="card-subtitle mb-2 text-muted like">Likes: {{likes}}</h5>
+            <button class="btn btn-outline-primary apply" (click)="apply(ad.AdId)"> Apply </button>
+            <ng-container *ngIf="!(checkLike(ad)); else unlike">
+              <button class="btn btn-outline-primary float-right" (click)="like(ad)"> Like </button> 
+            </ng-container>
+            <ng-template #unlike>
+              <button class="btn btn-outline-primary float-right" (click)="unLike(ad)"> Un Like </button> 
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

@@ -1,0 +1,25 @@
+<form #form="ngForm" (ngSubmit)="login()">
+    <div>
+        <h1>Login</h1>
+        <ul>
+            <b>E-mail:</b> <br> 
+            <input type="text" placeholder="E-mail" name="email" [(ngModel)]="email" >
+        </ul>
+        <ul>
+            <b>Password:</b> <br>
+            <input type="password" placeholder="Password" name="password" [(ngModel)]="password">
+        </ul>
+        <ul style="text-align: center; justify-content: center; display: flex;">
+            <b>User:</b><input class="checkbox" type="radio" 
+                        name="r1" value="client" checked
+                        (change)="changeUser($event.target.value)">
+            <b>Company:</b> <input class="checkbox" type="radio"
+                        name="r1" value="company" 
+                        (change)="changeUser($event.target.value)"> 
+        </ul>
+        <ul style="text-align: center;" class="text-danger">{{message}}</ul>
+        <ul class="btn">
+            <button type="submit">Login</button>
+        </ul>
+    </div>
+</form>
